@@ -5,19 +5,27 @@ import Header from './Component/Header';
 
 function App() {
   const [ pageState, setPageState ] = useState({
-    pages: [
-      { page: 'Main' }
-    ]
+    page: 'Main'
   }); // useState 내부에 원래 state에 해당되는 데이터를 전달한다.
+
+  const [ selected, setSelected ] = useState({
+    selected: ''
+  })
+
+  const onHeaderSubmit = async (select) => {
+    await setSelected({
+      selected: select
+    });
+  }
 
   return (
     <>
       <div>
-        <Header />
+        <Header onSubmit={onHeaderSubmit} />
       </div>
-      <div className="Body">
-        {pageState.pages[0].page === 'Main' && <Main /> }
-        {pageState.pages[0].page === 'Test' && <h1>Test</h1> }
+      <div className="bodyTest">
+        {pageState.page === 'Main' && <Main selected={selected} /> }
+        {pageState.page === 'Test' && <h1>Test</h1> }
       </div>
     </>
   );

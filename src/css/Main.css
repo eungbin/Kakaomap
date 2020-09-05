@@ -1,5 +1,6 @@
 .Body {
     text-align: center;
+    width: 100%;
 }
 
 .title {
@@ -11,3 +12,7 @@ p.info {
     font-size: 25px;
     margin-bottom: 20px;
 }
+
+/* #map {
+    margin-left: 150px;
+} */

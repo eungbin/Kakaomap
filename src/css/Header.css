@@ -50,9 +50,10 @@ ul.myMenu > li {
     position: relative; 
 }
 ul.myMenu > li ul.submenu { display:none; position: absolute; top:30px; }
+ul.myMenu > li:hover { cursor: pointer; }
 ul.myMenu > li:hover ul.submenu { display:block; }
-ul.myMenu > li ul.submenu > li { display:inline-block; width:95px; padding:5px 10px; background:#f1f1f1; text-align:center; }
-ul.myMenu > li ul.submenu > li:hover { background:#fff; }
+ul.myMenu > li ul.submenu > li { display:inline-block; width:95px; padding:5px 10px; background:#fff; text-align:center; float: left; font-size: 15px;}
+ul.myMenu > li ul.submenu > li:hover { background:#f1f1f1; cursor: pointer; }
 
 /* li.topmenu {
 	height: 100%;
@@ -67,8 +68,4 @@ hr {
     border: 0;
     height: 5px;
     background-color: #000
-}
-
-li.list {
-    float: left;
 }

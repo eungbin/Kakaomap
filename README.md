@@ -1,9 +1,14 @@
-<<<<<<< HEAD
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## KakaoMap
 
-## Available Scripts
+이 프로젝트는 카카오맵 API를 활용하여 현재 내 위치를 가져와  마커로 표시해주고, 
 
-In the project directory, you can run:
+카테고리별로 선택하여 카테고리에 해당하는 원하는 장소가 지도에 마커로 표시되는 시스템을
+
+React.js를 사용하여 구현한 것입니다.
+
+
+
+<hr />
 
 ### `yarn start`
 
