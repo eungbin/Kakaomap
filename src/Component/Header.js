@@ -30,6 +30,10 @@ function Header(props) {
         props.onSubmit('HP8');
     }
 
+    const selectMart = () => {
+        props.onSubmit('MT1');
+    }
+
     
     return (
         <>
@@ -48,6 +52,7 @@ function Header(props) {
                                 <li id="FD6" data-order="4"onClick={selectRest}>RESTAURANT</li>
                                 <li id="CE7" data-order="4"onClick={selectCafe}>CAFE</li>
                                 <li id="HP8" data-order="2"onClick={selectHospital}>HOSPITAL</li>
+                                <li id="MT1" data-order="2"onClick={selectMart}>MART</li>
                             </ul>
                         </li>
                         <li className="menu3 topmenu">Infomation</li>

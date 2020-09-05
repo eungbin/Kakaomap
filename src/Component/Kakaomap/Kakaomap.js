@@ -138,7 +138,7 @@ export default function Kakaomap(props) {
     // 클릭한 마커에 대한 장소 상세정보를 커스텀 오버레이로 표시하는 함수입니다
     function displayPlaceInfo (place) {
       var content = '<div class="placeinfo">' +
-                      '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
+                      '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';
 
       if (place.road_address_name) {
           content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
@@ -149,11 +149,15 @@ export default function Kakaomap(props) {
     
       content += '    <span class="tel">' + place.phone + '</span>' + 
                   '</div>' + 
-                  '<div class="after"></div>';
+                  '<div class="after"></div>' + '<button id="goKakaomap">길찾기</button>';
 
       contentNode.innerHTML = content;
       placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
-      placeOverlay.setMap(map);  
+      placeOverlay.setMap(map);
+      let btnGo = document.getElementById('goKakaomap');
+      btnGo.addEventListener('click', function() {
+        document.location.href="https://map.kakao.com/link/to/" + place.id;
+      });
     }
 
 
@@ -183,92 +187,6 @@ export default function Kakaomap(props) {
           searchPlaces();
       }
     }
-
-    // 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
-    // function changeCategoryClass(el) {
-    //   var category = document.getElementById('category'),
-    //       children = category.children,
-    //       i;
-
-    //   for ( i=0; i<children.length; i++ ) {
-    //       children[i].className = '';
-    //   }
-
-    //   if (el) {
-    //       el.className = 'on';
-    //   } 
-    // } 
-
-    // //키워드 검색 완료 시 호출되는 콜백함수
-    // const placesSearchCB = (data, status, pagination) => {
-    //   if (status === kakao.maps.services.Status.OK) {
-    //     for (let i=0; i < data.length; i++) {
-    //       placesSearchDisplayMarker(data[i]);
-    //     }
-    //   }
-    // }
-
-    // //어떤 카테고리를 선택했는지에 대한 Switch문 
-    // switch (props.selected.selected) {    
-    //   case "bank":
-    //     ps.categorySearch('BK9', placesSearchCB, {useMapBounds: true});   //카테고리로 은행을 검색
-    //     setSelect({
-    //       select: props.selected
-    //     });
-    //     console.log("bank click!!!");
-    //     break;
-      
-    //   case 'conv':
-    //     ps.categorySearch('CS2', placesSearchCB, {useMapBounds: true});   //카테고리로 편의점을 검색
-    //     setSelect({
-    //       select: props.selected
-    //     });
-    //     console.log("conv click!!!");
-    //     break;
-
-    //   case 'subw':
-    //     ps.categorySearch('SW8', placesSearchCB, {useMapBounds: true});   //카테고리로 지하철역을 검색
-    //     setSelect({
-    //       select: props.selected
-    //     });
-    //     console.log("subw click!!!");
-    //     break;
-
-    //   case 'room':
-    //     ps.categorySearch('AD5', placesSearchCB, {useMapBounds: true});   //카테고리로 숙박업소 검색
-    //     setSelect({
-    //       select: props.selected
-    //     });
-    //     console.log("room click!!!");
-    //     break;
-
-    //   case 'rest':
-    //     ps.categorySearch('FD6', placesSearchCB, {useMapBounds: true});   //카테고리로 식당을 검색
-    //     setSelect({
-    //       select: props.selected
-    //     });
-    //     console.log("rest click!!!");
-    //     break;
-
-    //   case 'cafe':
-    //     ps.categorySearch('CE7', placesSearchCB, {useMapBounds: true});   //카테고리로 카페를 검색
-    //     setSelect({
-    //       select: props.selected
-    //     });
-    //     console.log("cafe click!!!");
-    //     break;
-
-    //   case 'hosp':
-    //     ps.categorySearch('HP8', placesSearchCB, {useMapBounds: true});   //카테고리로 병원을 검색
-    //     setSelect({
-    //       select: props.selected
-    //     });
-    //     console.log("hosp click!!!");
-    //     break;
-
-    //   default:
-    //     alert('카테고리를 선택해 주세요.');
-    // }
 
     //현재 내 위치를 마커로 표시해주는 함수
     const myPositionDisplayMarker = (locPosition, message) => {

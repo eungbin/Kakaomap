@@ -8,8 +8,11 @@ React.js를 사용하여 구현한 것입니다.
 
 
 
-<hr />
++ 2020.09.05  +	(마커 infowindow의 길찾기 클릭 시 카카오맵 길찾기 연결, 대형마트 추가)
 
+
+
+<hr />
 ### `yarn start`
 
 Runs the app in the development mode.<br />
