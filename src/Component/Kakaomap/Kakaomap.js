@@ -149,15 +149,52 @@ export default function Kakaomap(props) {
     
       content += '    <span class="tel">' + place.phone + '</span>' + 
                   '</div>' + 
-                  '<div class="after"></div>' + '<button id="goKakaomap">길찾기</button>';
+                  '<div class="after"></div>' + '<button id="goKakaomap">도착지 설정</button>' + '<button id="sendLink">링크 보내기</button>';
 
       contentNode.innerHTML = content;
       placeOverlay.setPosition(new kakao.maps.LatLng(place.y, place.x));
       placeOverlay.setMap(map);
       let btnGo = document.getElementById('goKakaomap');
+      let btnLink = document.getElementById('sendLink');
       btnGo.addEventListener('click', function() {
         document.location.href="https://map.kakao.com/link/to/" + place.id;
       });
+      btnLink.addEventListener('click', function() {
+        window.Kakao.Link.sendDefault({
+          objectType: 'feed',
+          content: {
+            title: place.place_name,
+            description: place.road_address_name,
+            imageUrl:
+              'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+            link: {
+              mobileWebUrl: place.place_url,
+              webUrl: place.place_url,
+            },
+          },
+          social: {
+            likeCount: 286,
+            commentCount: 45,
+            sharedCount: 845,
+          },
+          buttons: [
+            {
+              title: '웹으로 보기',
+              link: {
+                mobileWebUrl: place.place_url,
+                webUrl: place.place_url,
+              },
+            },
+            {
+              title: '앱으로 보기',
+              link: {
+                mobileWebUrl: place.place_url,
+                webUrl: place.place_url,
+              },
+            },
+          ],
+        })
+      })
     }
 
 
@@ -210,27 +247,6 @@ export default function Kakaomap(props) {
       // 지도 중심좌표를 접속위치로 변경
       map.setCenter(locPosition);
     }
-
-    // //카테고리 검색 결과 장소들을 마커로 표시해주는 함수
-    // const placesSearchDisplayMarker = (place) => {
-    //   // 마커를 클릭하면 장소명을 표출할 인포윈도우
-    //   let infowindow = new kakao.maps.InfoWindow({
-    //     zIndex:1,
-    //     removable: true
-    //   });
-
-    //   // 마커를 생성하고 지도에 표시
-    //   let marker = new kakao.maps.Marker({
-    //     map: map,
-    //     position: new kakao.maps.LatLng(place.y, place.x)
-    //   });
-
-    //   //마커에 클릭이벤트 등록
-    //   kakao.maps.event.addListener(marker, 'click', function() {
-    //     infowindow.setContent('<div style="padding:5px;font-size:12px;font-family:Malgun Gothic">' + place.place_name + '</div>');
-    //     infowindow.open(map, marker);
-    //   })
-    // }
 
     if (navigator.geolocation) {
     
