@@ -39,7 +39,7 @@ function Header(props) {
         <>
         <div className="container">
             <header>
-                <h2>Kakao Map Test Page</h2>
+                <h2 className="header2">Kakao Map Test Page</h2>
                 <nav>
                     <ul className="myMenu">
                         <li className="menu1 topmenu">Choose Category</li>
