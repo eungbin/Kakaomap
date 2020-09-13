@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Kakaomap/precache-manifest.152df6e974af1ebda0313701ca2698b9.js"
+  "/Kakaomap/precache-manifest.82e55f461167a22337dd2e88724f9d95.js"
 );
 
 self.addEventListener('message', (event) => {
