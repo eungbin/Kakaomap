@@ -16,8 +16,6 @@ React.js를 사용하여 구현한 것입니다.
 
 <hr />
 
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 =======
 # Kakaomap
 KakaoMap Test Project (feat. React)
