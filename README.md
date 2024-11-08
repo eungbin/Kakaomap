@@ -13,10 +13,8 @@ React.js를 사용하여 구현한 것입니다.
 + 2020.09.13 +     (해상도에 따라 크기조절)
 
 
-
 <hr />
 
-=======
 # Kakaomap
 KakaoMap Test Project (feat. React)
 >>>>>>> 076e7ae7c2522f64a21ad6beebe419eff8c62ab2
